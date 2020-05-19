@@ -17,7 +17,7 @@ pipeline {
 		    echo "> Uploading ${file}";
 		    CID=`docker create --rm -i kovetskiy/mark:latest -l https://skaafrica.atlassian.net/wiki -u CONFLUENCE_CREDS_USR -p CONFLUENCE_CREDS_PSW -f ${file}`
 		    docker cp ${file} $CID:/docs/
-		    docker run -a -i $CID
+		    docker start -a -i $CID
 		  done
                 '''
             }
