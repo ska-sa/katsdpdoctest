@@ -16,7 +16,7 @@ pipeline {
 		  for file in ${FILES[@]}; do
 		    echo;
 		    echo "> Uploading ${file}";
-		    docker run --rm -i -v=${env.WORKSPACE}:/docs kovetskiy/mark:latest -l https://skaafrica.atlassian.net/wiki -u CONFLUENCE_CREDS_USR -p CONFLUENCE_CREDS_PSW -f ${file};
+		    docker run --rm -i -v=`pwd`:/docs kovetskiy/mark:latest -l https://skaafrica.atlassian.net/wiki -u CONFLUENCE_CREDS_USR -p CONFLUENCE_CREDS_PSW -f ${file};
 		  done
                 '''
             }
