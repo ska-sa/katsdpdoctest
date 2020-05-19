@@ -6,7 +6,7 @@ pipeline {
                 CONFLUENCE_CREDS=credentials('katsdpdocstest')
             }
             steps {
-                sh '''
+                sh '''#!/bin/bash
 		  FILES=($(git show --name-only --diff-filter=ACMRT | grep '.md$'))
 		  echo "Processing files for possible Confluence upload: $FILES"
 		  if [[ "${#FILES[@]}" == "0" ]]; then exit 0; fi;
